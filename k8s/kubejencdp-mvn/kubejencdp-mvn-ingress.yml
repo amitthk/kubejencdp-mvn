@@ -1,0 +1,12 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: __APP_NAME__-ingress
+  annotations:
+    kubernetes.io/ingress.allow-http: "true"
+spec:
+  tls:
+  - secretName: api-tls-secret
+  backend:
+    serviceName: __APP_NAME__-svc
+    servicePort: http

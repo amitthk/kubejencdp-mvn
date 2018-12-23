@@ -1,0 +1,31 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: __APP_NAME__-dc
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: __APP_NAME__
+        updateTimestamp: "__TIMESTAMP__"
+    spec:
+      containers:
+      - name: __APP_NAME__-ctr
+        image: >-
+          __IMAGE__
+        env:
+          - name: DEPLOY_TIMESTAMP
+            value: "__TIMESTAMP__"
+        volumeMounts:
+        - name: tls-secrets
+          readOnly: true
+          mountPath: "/var/www/app/tls"
+        ports:
+        - containerPort: 8080
+          name: http
+        imagePullPolicy: Always
+      volumes:
+      - name: tls-secrets
+        secret:
+          secretName: api-tls-secret

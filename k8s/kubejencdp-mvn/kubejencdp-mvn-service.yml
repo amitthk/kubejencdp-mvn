@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: __APP_NAME__
+  name: __APP_NAME__-svc
+spec:
+  ports:
+  - port: 8080
+    targetPort: 8080
+    name: http
+  selector:
+    app: __APP_NAME__
+  sessionAffinity: None
+  type: NodePort

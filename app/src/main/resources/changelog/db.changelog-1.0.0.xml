@@ -1,0 +1,23 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
+                   http://www.liquibase.org/xml/ns/dbchangelog-ext
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <changeSet id="1" author="amitthk">
+        <sql>
+            CREATE TABLE IF NOT EXISTS BLOGPOST(
+            ID SERIAL NOT NULL PRIMARY KEY,
+            NAME CHARACTER VARYING(255),
+            CATEGORY CHARACTER VARYING(255),
+            COMMENTS CHARACTER VARYING(255),
+            DESCRIPTION CHARACTER VARYING(255),
+            LAST_UPDATED TIMESTAMP);
+        </sql>
+    </changeSet>
+    <changeSet id="02" author="amitthk">
+        <sql>
+            ALTER TABLE BLOGPOST ALTER COLUMN LAST_UPDATED SET DEFAULT now();
+        </sql>
+    </changeSet>
+</databaseChangeLog>
