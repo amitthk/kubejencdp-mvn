@@ -1,4 +1,4 @@
 * Continuous Deployment pipelines for Jave Maven Docker project to Kubernetes
 This source code is part of article with above title at dzone. For further information please follow the link:
 
-<<tbd>>
+[[https://dzone.com/articles/cicd-pipelines-for-java-maven-docker-project-to-ku]]
